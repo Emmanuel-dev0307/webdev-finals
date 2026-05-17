@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Medical Interface</title>
+
+<link rel="stylesheet" href="des.css">
+
+
+</head>
+
+<body>
+
+<!-- ================= TOP BAR ================= -->
+
+<div class="top-bar">
+
+    <button class="nav-btn" onclick="fadeAndGo('about.html')">About</button>
+
+    <h1>Medical Interface</h1>
+
+    <button class="nav-btn" onclick="openFeedback()">Feedback</button>
+
+</div>
+
+<!-- ================= MAIN ================= -->
+
+<div class="main-container">
+
+<!-- ========= ILLNESSES CROSS ========= -->
+
+<button class="cross" onclick="fadeAndGo('illnesses.html')">
+
+    <div class="vertical"></div>
+    <div class="horizontal"></div>
+
+    <div class="top-img">
+        <img src="images/runny-removebg-preview.png" alt="">
+    </div>
+
+    <div class="bottom-img">
+        <img src="images/cough-removebg-preview.png" alt="">
+    </div>
+
+    <div class="left-img">
+        <img src="images/blisters-removebg-preview.png" alt="">
+    </div>
+
+    <div class="right-img">
+        <img src="images/rashes-removebg-preview.png" alt="">
+    </div>
+
+    <div class="center-img">
+        <img src="images/headthumb-removebg-preview.png" alt="">
+    </div>
+
+    <div class="cross-label">Illnesses</div>
+
+</button>
+
+<!-- ========= INJURIES CROSS ========= -->
+
+<button class="cross" onclick="fadeAndGo('INJURIES.html')">
+
+    <div class="vertical"></div>
+    <div class="horizontal"></div>
+
+    <div class="top-img">
+        <img src="images/dislocation-.png" alt="">
+    </div>
+
+    <div class="bottom-img">
+        <img src="images/sprain-removebg-preview.png" alt="">
+    </div>
+
+    <div class="left-img">
+        <img src="images/fracture-removebg-preview.png" alt="">
+    </div>
+
+    <div class="right-img">
+        <img src="images/cuts-removebg-preview.png" alt="">
+    </div>
+
+    <div class="center-img">
+        <img src="images/bruise-removebg-preview.png" alt="">
+    </div>
+
+    <div class="cross-label">INJURIES</div>
+
+</button>
+
+<!-- ========= MEDICATIONS CROSS ========= -->
+
+<button class="cross" onclick="fadeAndGo('health.html')">
+
+    <div class="vertical"></div>
+    <div class="horizontal"></div>
+
+    <div class="top-img">
+        <img src="images/prostate.png" alt="">
+    </div>
+
+    <div class="bottom-img">
+        <img src="images/testosterone.png" alt="">
+    </div>
+
+    <div class="left-img">
+        <img src="images/balding.png" alt="">
+    </div>
+
+    <div class="right-img">
+        <img src="images/menstruation.png" alt="">
+    </div>
+
+    <div class="center-img">
+        <img src="images/menopause.png" alt="">
+    </div>
+
+    <div class="cross-label">MEDICATIONS</div>
+
+</button>
+
+</div>
+
+<script>
+
+/* ===== FADE OUT TRANSITION ===== */
+
+function fadeAndGo(page){
+    document.body.classList.add("fade-out");
+
+    setTimeout(() => {
+        window.location.href = page;
+    }, 500);
+}
+
+/* ===== FEEDBACK BUTTON ===== */
+
+function openFeedback(){
+    window.open("https://forms.gle/YF5M9X9bPykgeDLh9", "_blank");
+}
+
+</script>
+
+</body>
+</html>

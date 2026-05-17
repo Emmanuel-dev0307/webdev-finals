@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Health</title>
+  <link rel="stylesheet" href="des.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    <button class="nav-btn" onclick="location.href='index.html'">&#8592; Back</button>
+    <h1>Select a Health Topic</h1>
+    <div></div>
+  </div>
+
+  <div class="carousel-wrapper">
+
+    <button class="arrow-btn left-arrow" onclick="moveCarousel(-1)">&#8249;</button>
+
+    <div class="carousel-track" id="carousel">
+
+      <div class="sel-card" onclick="selectCondition('Menstruation')">
+        <img src="images/menstruation.png" alt="Menstruation">
+        <span>Menstruation</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('PCOS')">
+        <img src="images/pcos.png" alt="PCOS">
+        <span>PCOS</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Pregnancy')">
+        <img src="images/pregnancy.png" alt="Pregnancy">
+        <span>Pregnancy</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Menopause')">
+        <img src="images/menopause.png" alt="Menopause">
+        <span>Menopause</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Breast Health')">
+        <img src="images/breast-health.png" alt="Breast Health">
+        <span>Breast Health</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Prostate')">
+        <img src="images/prostate.png" alt="Prostate">
+        <span>Prostate</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Testosterone')">
+        <img src="images/testosterone.png" alt="Testosterone">
+        <span>Testosterone</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Male Fertility')">
+        <img src="images/male-fertility.png" alt="Male Fertility">
+        <span>Male Fertility</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Balding')">
+        <img src="images/balding.png" alt="Balding">
+        <span>Balding</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Placeholder')">
+        <img src="images/placeholder.png" alt="Placeholder">
+        <span>Placeholder</span>
+      </div>
+
+    </div>
+
+    <button class="arrow-btn right-arrow" onclick="moveCarousel(1)">&#8250;</button>
+
+  </div>
+
+  <script>
+    let current = 0;
+    const cards = document.querySelectorAll('.sel-card');
+
+    function updateCarousel() {
+      cards.forEach((card, i) => {
+        card.classList.remove('active', 'prev', 'next', 'hidden');
+        const diff = i - current;
+        if (diff === 0) card.classList.add('active');
+        else if (diff === -1) card.classList.add('prev');
+        else if (diff === 1) card.classList.add('next');
+        else card.classList.add('hidden');
+      });
+    }
+
+    function moveCarousel(dir) {
+      current = Math.max(0, Math.min(cards.length - 1, current + dir));
+      updateCarousel();
+    }
+
+    function selectCondition(name) {
+      const pages = {
+        'Menstruation': 'health-menstruation.html',
+        'PCOS': 'health-pcos.html',
+        'Pregnancy': 'health-pregnancy.html',
+        'Menopause': 'health-menopause.html',
+        'Breast Health': 'health-breast-health.html',
+        'Prostate': 'health-prostate.html',
+        'Testosterone': 'health-testosterone.html',
+        'Male Fertility': 'health-male-fertility.html',
+        'Balding': 'health-balding.html',
+        'Placeholder': 'health-placeholder.html'
+      };
+      location.href = pages[name];
+    }
+
+    updateCarousel();
+  </script>
+
+</body>
+</html>

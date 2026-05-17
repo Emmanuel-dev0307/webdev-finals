@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us - Medical Interface</title>
+
+<link rel="stylesheet" href="des.css">
+
+</head>
+
+<body>
+
+<!-- ================= TOP BAR ================= -->
+
+<div class="top-bar">
+
+    <button class="nav-btn" onclick="fadeAndGo('index.html')">← Back</button>
+
+    <h1>About Us</h1>
+
+    <div class="spacer"></div>
+
+</div>
+
+<!-- ================= ABOUT CONTENT ================= -->
+
+<div class="about-container">
+
+    <div class="about-card">
+        <h2>SYMPTOMS IDENTIFIER</h2>
+        <p>We are BSCpE 2A, a group of Bachelor of Science in Computer Engineering students who are making a website for developing a reliable and user-friendly platform focused on health awareness and education.</p><br>
+        <p>This website is designed to assist individuals who engage in self-assessment by providing structured and accessible information on a wide range of health-related topics. These include common illnesses and injuries, as well as specialized areas such as menstruation, menopause, polycystic ovary syndrome (PCOS), breast health, prostate health, testosterone-related concerns, and hair loss.</p><br>
+        <p>Our objective is to support users in recognizing possible symptoms, improving their understanding of various conditions, and encouraging informed decision-making regarding their health. By presenting information in a clear and organized manner, we aim to promote early awareness and guide users on when it is appropriate to seek professional medical consultation.</p><br>
+        <p>This platform is developed strictly for educational purposes. It does not provide medical advice, diagnosis, or treatment, and should not be used as a substitute for consultation with qualified healthcare professionals.</p><br>
+        <p>As students of BSCpE 2A, this project reflects our dedication to applying our technical knowledge in creating meaningful solutions that contribute to public health awareness and responsible use of technology.</p>
+    </div>
+
+</div>
+
+<script>
+
+/* ===== FADE OUT TRANSITION ===== */
+
+function fadeAndGo(page){
+    document.body.classList.add("fade-out");
+
+    setTimeout(() => {
+        window.location.href = page;
+    }, 500);
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Illnesses</title>
+
+  <link rel="stylesheet" href="des.css">
+
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <button class="nav-btn" onclick="fadeAndGo('index.html')">&#8592; Back</button>
+    <h1>Select an Illness</h1>
+    <div></div>
+  </div>
+
+  <div class="carousel-wrapper">
+
+    <button class="arrow-btn left-arrow" onclick="moveCarousel(-1)">&#8249;</button>
+
+    <div class="carousel-track" id="carousel">
+
+      <div class="sel-card" onclick="selectCondition('Runny Nose')">
+        <img src="images/runny.png" alt="Runny Nose">
+        <span>Runny Nose</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Cough')">
+        <img src="images/cough.png" alt="Cough">
+        <span>Cough</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Blisters')">
+        <img src="images/blisters.jpg" alt="Blisters">
+        <span>Blisters</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Rashes')">
+        <img src="images/rashes.png" alt="Rashes">
+        <span>Rashes</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('General Illness')">
+        <img src="images/headache.png" alt="General Illness">
+        <span>Headache</span>
+      </div>
+
+    </div>
+
+    <button class="arrow-btn right-arrow" onclick="moveCarousel(1)">&#8250;</button>
+
+  </div>
+
+  <script>
+
+    /* ===== FADE OUT BEFORE CHANGING PAGE ===== */
+
+    function fadeAndGo(page){
+      document.body.classList.add("fade-out");
+
+      setTimeout(() => {
+        window.location.href = page;
+      }, 500);
+    }
+
+    let current = 0;
+    const cards = document.querySelectorAll('.sel-card');
+
+    function updateCarousel() {
+      cards.forEach((card, i) => {
+
+        card.classList.remove('active', 'prev', 'next', 'hidden');
+
+        const diff = i - current;
+
+        if (diff === 0) card.classList.add('active');
+        else if (diff === -1) card.classList.add('prev');
+        else if (diff === 1) card.classList.add('next');
+        else card.classList.add('hidden');
+      });
+    }
+
+    function moveCarousel(dir) {
+      current = Math.max(0, Math.min(cards.length - 1, current + dir));
+      updateCarousel();
+    }
+
+    function selectCondition(name) {
+
+      const pages = {
+        'Runny Nose': 'condition-runny-nose.html',
+        'Cough': 'condition-cough.html',
+        'Blisters': 'condition-blisters.html',
+        'Rashes': 'condition-rashes.html',
+        'General Illness': 'condition-general-illness.html'
+      };
+
+      fadeAndGo(pages[name]);
+    }
+
+    updateCarousel();
+
+  </script>
+
+</body>
+</html>

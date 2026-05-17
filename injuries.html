@@ -1,0 +1,108 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Injuries</title>
+
+  <link rel="stylesheet" href="des.css">
+
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <button class="nav-btn" onclick="fadeAndGo('index.html')">&#8592; Back</button>
+    <h1>Select an Injury</h1>
+    <div></div>
+  </div>
+
+  <div class="carousel-wrapper">
+
+    <button class="arrow-btn left-arrow" onclick="moveCarousel(-1)">&#8249;</button>
+
+    <div class="carousel-track" id="carousel">
+
+      <div class="sel-card" onclick="selectCondition('Head Injury')">
+        <img src="images/sprain.jpg" alt="Head Injury">
+        <span>Sprain</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Foot Injury')">
+        <img src="images/cuts.jpg" alt="Foot Injury">
+        <span>Cuts</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Left Arm Injury')">
+        <img src="images/bruise.jpg" alt="Left Arm Injury">
+        <span>Bruise</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('Right Arm Injury')">
+        <img src="images/dislocation.png" alt="Right Arm Injury">
+        <span>Dislocation</span>
+      </div>
+
+      <div class="sel-card" onclick="selectCondition('General Injury')">
+        <img src="images/fracture.jpg" alt="General Injury">
+        <span>fracture</span>
+      </div>
+
+    </div>
+
+    <button class="arrow-btn right-arrow" onclick="moveCarousel(1)">&#8250;</button>
+
+  </div>
+
+  <script>
+
+    /* ===== FADE OUT BEFORE CHANGING PAGE ===== */
+
+    function fadeAndGo(page){
+      document.body.classList.add("fade-out");
+
+      setTimeout(() => {
+        window.location.href = page;
+      }, 500);
+    }
+
+    let current = 0;
+    const cards = document.querySelectorAll('.sel-card');
+
+    function updateCarousel() {
+      cards.forEach((card, i) => {
+        card.classList.remove('active', 'prev', 'next', 'hidden');
+
+        const diff = i - current;
+
+        if (diff === 0) card.classList.add('active');
+        else if (diff === -1) card.classList.add('prev');
+        else if (diff === 1) card.classList.add('next');
+        else card.classList.add('hidden');
+      });
+    }
+
+    function moveCarousel(dir) {
+      current = Math.max(0, Math.min(cards.length - 1, current + dir));
+      updateCarousel();
+    }
+
+    function selectCondition(name) {
+
+      const pages = {
+        'Head Injury': 'condition-head-injury.html',
+        'Foot Injury': 'condition-foot-injury.html',
+        'Left Arm Injury': 'condition-left-arm-injury.html',
+        'Right Arm Injury': 'condition-right-arm-injury.html',
+        'General Injury': 'condition-general-injury.html'
+      };
+
+      fadeAndGo(pages[name]);
+    }
+
+    updateCarousel();
+
+  </script>
+
+</body>
+</html>
